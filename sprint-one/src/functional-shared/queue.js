@@ -13,7 +13,7 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
   var newQueue = {};
   newQueue.storage = {};
-  extend(newQueue, queueMethods);
+  _.extend(newQueue, queueMethods);
   return newQueue;
 };
 
@@ -34,10 +34,4 @@ queueMethods.dequeue = function() {
 
 queueMethods.size = function() {
   return Object.keys(this.storage).length;
-};
-
-var extend = function(to, from) {
-  for (var key in from) {
-    to[key] = from[key]
-  }
 };
