@@ -56,7 +56,6 @@ var Queue = function() {
       storage[i] = storage[(i + 1)];
     }
     delete storage[(someInstance.size() - 1)];
-    console.log(storage);
     return result;
   };
 
