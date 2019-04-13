@@ -10,17 +10,19 @@ var BinarySearchTree = function(value) {
 binTreeMethods = {};
 
 binTreeMethods.insert = function (value) {
-  var node;
-  for (var i = this; i !== null; i.value > value ? i = i.left : i = i.right) {
-    node = i;
+  if (!this.contains(value)) {
+    var node;
+    for (var i = this; i !== null; i.value > value ? i = i.left : i = i.right) {
+      node = i;
+    }
+    // console.log(node);
+    node.value > value ? node.left = BinarySearchTree(value) : node.right = BinarySearchTree(value);
   }
-  // console.log(node);
-  node.value > value ? node.left = BinarySearchTree(value) : node.right = BinarySearchTree(value);
 };
 
 binTreeMethods.contains = function (target) {
   for (var currentNode = this; currentNode !== null; currentNode.value > target ? currentNode = currentNode.left : currentNode = currentNode.right) {
-    if(currentNode.value === target) {
+    if (currentNode.value === target) {
       return true;
     }
   }

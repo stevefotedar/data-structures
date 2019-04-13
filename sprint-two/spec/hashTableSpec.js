@@ -47,6 +47,16 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should not remove collision values when removing values', function() {
+    var oldHashFunction = window.getIndexBelowMaxForKey;
+    window.getIndexBelowMaxForKey = function() { return 0; };
+    hashTable.insert('Bob', 'Barker');
+    hashTable.insert('Steven', 'Tyler');
+    hashTable.remove('Bob');
+    expect(hashTable.retrieve('Steven')).to.equal('Tyler');
+    window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {
