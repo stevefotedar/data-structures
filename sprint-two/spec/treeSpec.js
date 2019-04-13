@@ -40,5 +40,13 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
+  it ('should contain identical methods and properties at each node', function() {
+    tree.addChild(7);
+    tree.addChild(8);
+    expect(tree.children[0]).to.have.property('value');
+    expect(tree.children[1]).to.have.property('children');
+    expect(tree.children[0]).to.have.property('contains');
+    expect(tree.children[1]).to.have.property('addChild');
 
+  } );
 });

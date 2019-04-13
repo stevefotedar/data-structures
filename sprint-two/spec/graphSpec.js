@@ -68,4 +68,12 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should have edges that directly connect in memory', function() {
+    graph.addNode(2);
+    graph.addNode(6);
+    graph.addEdge(2, 6);
+    expect(graph[2][6]).to.eql(graph[6]);
+    expect(graph[6][2]).to.eql(graph[2]);
+  });
 });

@@ -51,5 +51,12 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should always point to null for tail next', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    expect(linkedList.tail.next).to.equal(null);
+  });
+
   // add more tests here to test the functionality of linkedList
 });
